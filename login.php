@@ -2,32 +2,32 @@
 include 'connect.php';
 
 if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
 
-    
-    $sql = "SELECT username, passwd FROM user WHERE username = ? AND passwd = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $username, $password);
-    mysqli_stmt_execute($stmt);
 
-    
-    $result = mysqli_stmt_get_result($stmt);
+  $sql = "SELECT username, passwd FROM user WHERE username = ? AND passwd = ?";
+  $stmt = mysqli_prepare($conn, $sql);
+  mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+  mysqli_stmt_execute($stmt);
 
-    if (mysqli_num_rows($result) == 1) {
-      echo '<script>
+
+  $result = mysqli_stmt_get_result($stmt);
+
+  if (mysqli_num_rows($result) == 1) {
+    echo '<script>
       alert("Login Successfully!");
   </script>';
-        header('location: display.php');
-        exit();
-    } else {
-      echo '<script>
+    header('location: display.php');
+    exit();
+  } else {
+    echo '<script>
       alert("Incorrect Username or password. Please Try again");
       document.getelementById("form").reset();
   </script>';
-    }
-    
-    mysqli_stmt_close($stmt);
+  }
+
+  mysqli_stmt_close($stmt);
 }
 
 mysqli_close($conn);
@@ -61,7 +61,9 @@ mysqli_close($conn);
               placeholder="Password">
           </div>
           <div class="grid gap-3 ">
-            <button type="submit" name="submit" class="btn btn-primary ml-5">Login</button>
+            <button type="submit" name="submit" class="btn btn-primary ml-5">Submit</button>
+            <button type="register" name="register" class="btn btn-dark mr-5"><a href="register.php"
+                class="text-light text-decoration-none">Go to register</a></button>
           </div>
         </form>
       </div>
