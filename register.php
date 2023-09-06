@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
     <div class="container my-5  ">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="post" id ="form">
+                <form method="post" id="form">
                     <h3 class="fw-bold my-5">Register Here</h3>
                     <div class="mb-3  ">
                         <label for="exampleinputusername" class="form-label ">Username</label>
@@ -49,7 +49,8 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="grid gap-3 ">
                         <button type="submit" name="submit" class="btn btn-primary ml-5">Submit</button>
-                        <button type="login" name="login" class="btn btn-dark mr-5"><a href="login.php" class = "text-light text-decoration-none">Go to Login</a></button>
+                        <button type="login" name="login" class="btn btn-dark mr-5"><a href="login.php"
+                                class="text-light text-decoration-none">Go to Login</a></button>
                     </div>
                 </form>
             </div>
